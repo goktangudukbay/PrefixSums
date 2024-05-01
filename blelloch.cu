@@ -87,11 +87,11 @@ int main(){
     for(int i = 0; i < N; i++)
         g_idata[i] = i;
 
-    //cudaMemPrefetchAsync(g_idata, N*sizeof(float), 0);      
-    //cudaMemPrefetchAsync(g_odata, N*sizeof(float), 0);       
-   //cudaMemPrefetchAsync(sum, NO_OF_BLOCKS*sizeof(float), 0);       
-    //cudaMemPrefetchAsync(cumSum, NO_OF_BLOCKS*sizeof(float), 0);        
-    //cudaMemPrefetchAsync(var, sizeof(float), 0);
+    cudaMemPrefetchAsync(g_idata, N*sizeof(float), 0);      
+    cudaMemPrefetchAsync(g_odata, N*sizeof(float), 0);       
+    cudaMemPrefetchAsync(sum, NO_OF_BLOCKS*sizeof(float), 0);       
+    cudaMemPrefetchAsync(cumSum, NO_OF_BLOCKS*sizeof(float), 0);        
+    cudaMemPrefetchAsync(var, sizeof(float), 0);
 
     auto start = std::chrono::system_clock::now();
 
